@@ -1,1 +1,1 @@
-# Data Structure And Algorithm [Y1S2]
+# Data Structures And Algorithms [Y1S2]
