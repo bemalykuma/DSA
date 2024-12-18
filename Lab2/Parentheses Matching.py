@@ -16,6 +16,6 @@ def is_parentheses_matching(expression):
         return False
 
 # Test
-str = "((A-B)*C))("
-result = is_parentheses_matching(str)
-print(result)
+# str = "((A-B)*C)" //True  "((A-B)*C))(" //False
+# result = is_parentheses_matching(str)
+# print(result)
