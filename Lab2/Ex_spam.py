@@ -46,29 +46,39 @@ class ArrayStack():
     def print_stack(self) :
         print(self.data)
     
-#Student
+#is_parenthese_matching
+def is_parentheses_matching(expression):
+    o_1 = ArrayStack()
+    o_2 = ArrayStack()
+    o_3 = ArrayStack()
+    size = 0
+    for i in expression:
+        if i == "(":
+            o_1.push("(")
+            size += 1
+        elif i == ")":
+            o_1.pop()
+            size -= 1
+        if i == "{":
+            o_2.push("{")
+            size += 1
+        elif i == "}":
+            o_2.pop()
+            size -= 1
+        if i == "[":
+            o_3.push("[")
+            size += 1
+        elif i == "]":
+            o_3.pop()
+            size -= 1
+    if size < 0 :
+        return False
+    if o_1.is_empty() and o_2.is_empty() and o_3.is_empty():
+        return True
+    else:
+        return False
 
-def student_group(group, num):
-    student = ArrayStack()
-    all_list = list()
-    count = 0
-    for _ in range(num):
-        student.push(input())
-
-    for _ in range(group):
-        n_list = list()
-        all_list.append(n_list)
-    while not student.is_empty():
-        for i in all_list:
-            if student.is_empty():
-                break
-            x = student.pop()
-            i.append(x)
-    for i in all_list:
-        count += 1
-        temp = ""
-        for j in i:
-            temp += ", " + j
-        temp = temp.replace(", ","",1)
-        print(f"Group {count}: {temp}")
-student_group(int(input()), int(input()))
+def main(sam):
+    result = is_parentheses_matching(sam)
+    print(result)
+main(input())

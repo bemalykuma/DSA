@@ -45,30 +45,27 @@ class ArrayStack():
 
     def print_stack(self) :
         print(self.data)
-    
-#Student
 
-def student_group(group, num):
-    student = ArrayStack()
-    all_list = list()
-    count = 0
-    for _ in range(num):
-        student.push(input())
-
-    for _ in range(group):
-        n_list = list()
-        all_list.append(n_list)
-    while not student.is_empty():
-        for i in all_list:
-            if student.is_empty():
-                break
-            x = student.pop()
-            i.append(x)
-    for i in all_list:
-        count += 1
-        temp = ""
-        for j in i:
-            temp += ", " + j
-        temp = temp.replace(", ","",1)
-        print(f"Group {count}: {temp}")
-student_group(int(input()), int(input()))
+def infix_to_postfix(text): 
+    operation = ArrayStack()
+    result = ""
+    text = text.replace(" ","")
+    for i in text:
+        if not i in "+-*/":
+            result += i
+        else:
+            if operation.is_empty():
+                operation.push(i)
+            else:
+                if operation.get_stack_top() in "+-" and i in "*/":
+                    operation.push(i)
+                elif (operation.get_stack_top() in "*/" and i in "*/") or (operation.get_stack_top() in "+-*/" and i in "+-"):
+                    while operation.is_empty() is False:
+                        x = operation.pop()
+                        result += x
+                    operation.push(i)
+    while operation.is_empty() is False:
+        x = operation.pop()
+        result += x
+    print(result)
+infix_to_postfix(input())
