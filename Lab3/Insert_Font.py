@@ -21,7 +21,7 @@ class SinglyLinkedList:
             self.head = newNode
         else:
             start = self.head
-            while start.next != None:
+            while start.next != None:\
                 start = start.next
             start.next = newNode
 
