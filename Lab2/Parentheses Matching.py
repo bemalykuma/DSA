@@ -2,6 +2,7 @@ class ArrayStack():
     def __init__(self) :
         self.size = 0
         self.data = list()
+
     def push(self, input_data) :
         """Stack"""
         try:
