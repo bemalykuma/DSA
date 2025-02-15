@@ -6,7 +6,10 @@ def selectSort(list, last):
         small = c
         walker = c + 1
         while walker <= a:
-            if int(list[walker]) < int(list[small]):
+            if list[small][0] == list[walker][0]:
+                if int(list[small][1:]) > int(list[walker][1:]):
+                    small = walker
+            elif list[walker] < list[small]:
                 small = walker
             walker += 1
             count += 1

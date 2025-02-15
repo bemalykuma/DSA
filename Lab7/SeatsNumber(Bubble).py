@@ -6,7 +6,11 @@ def bubbleSort(list, last):
         walker = last
         sxrted = True
         while walker > c:
-            if list[walker] < list[walker - 1]:
+            if list[walker][0] == list[walker-1][0]:
+                if int(list[walker][1:]) < int(list[walker-1][1:]):
+                    sxrted = False
+                    list[walker], list[walker-1] = list[walker-1], list[walker]
+            elif list[walker] < list[walker - 1]:
                 sxrted = False
                 list[walker], list[walker-1] = list[walker-1], list[walker]
             walker -= 1
